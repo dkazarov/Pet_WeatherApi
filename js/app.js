@@ -1,6 +1,8 @@
 'use strict';
 
 const main = document.querySelector('main');
+const headerTitle = document.querySelector('.header__title');
+console.log(headerTitle);
 
 const param = {
 	"url" : "https://api.openweathermap.org/data/2.5/",
@@ -50,6 +52,12 @@ function selectCity () {
 
 selectCity();
 
+function changeHeaderTitle () {
+   const countCity = Object.entries(cities);
+   headerTitle.innerHTML = `Погода в найбільших ${countCity.length} містах України`;
+}
+
+changeHeaderTitle();
 
 function getWeather() {
 	const cityId = document.querySelector('#cities').value;
