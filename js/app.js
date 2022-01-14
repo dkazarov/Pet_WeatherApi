@@ -8,6 +8,7 @@ const param = {
 	"url" : "https://api.openweathermap.org/data/2.5/",
 	"appid" : "df6323c09e8d7869991460f3e64324f5"
 }
+
 // City
 const cities = {
    703448 : "Київ",
@@ -35,7 +36,7 @@ const cities = {
    707471 : "Івано-Франківськ",
    691650 : "Тернопіль",
    702569 : "Луцьк"
-}
+};
 // Function SelectCity - dynamic create select for Object city
 function selectCity () {
    let select = document.createElement('select');
@@ -52,15 +53,15 @@ function selectCity () {
 
 selectCity();
 
-function changeHeaderTitle () {
+function changeTitle (obj, div) {
    let countCity = 0;
-   for (let index in cities) {
+   for (let index in obj) {
       countCity++;  
    }
-   headerTitle.innerHTML = `Погода в найбільших ${countCity} містах України`;
+   div.innerHTML = `Погода в найбільших ${countCity} містах України`;
 }
 
-changeHeaderTitle();
+changeTitle(cities, headerTitle);
 
 function getWeather() {
 	const cityId = document.querySelector('#cities').value;
