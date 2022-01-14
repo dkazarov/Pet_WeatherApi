@@ -1,5 +1,7 @@
 'use strict';
 
+const main = document.querySelector('main');
+
 const param = {
 	"url" : "https://api.openweathermap.org/data/2.5/",
 	"appid" : "df6323c09e8d7869991460f3e64324f5"
@@ -18,7 +20,7 @@ const cities = {
    701822 : "Маріуполь",
    702658 : "Луганськ",
    689558 : "Вінниця",
-   709717 : "Макіївка",
+   702320 : "Макіївка",
    706448 : "Херсон",
    710735 : "Чернігів",
    696643 : "Полтава",
@@ -33,8 +35,25 @@ const cities = {
    702569 : "Луцьк"
 }
 
+function selectCity () {
+   let select = document.createElement('select');
+   select.id = 'cities';
+   main.appendChild(select);
+   for (let key in cities) {      
+      const option = document.createElement('option');
+      option.classList.add('city__item');
+      option.setAttribute('value', key);
+      select.appendChild(option).innerHTML = cities[key];
+   }
+   console.log(select);
+}
+
+selectCity();
+
+
 function getWeather() {
-	const cityId = document.querySelector('#city').value;
+	const cityId = document.querySelector('#cities').value;
+   
 	fetch(`${param.url}weather?id=${cityId}&units=metric&APPID=${param.appid}`)
 	.then(weather => { 
 			return weather.json();
@@ -46,7 +65,6 @@ function showWeather(data) {
 	console.log(data);
 }
 
-
 getWeather();
 
-document.querySelector('#city').onchange = getWeather;
+document.querySelector('#cities').onchange = getWeather;
