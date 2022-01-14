@@ -47,9 +47,6 @@ function showWeather(data) {
 }
 
 
-
-
-
 getWeather();
 
 document.querySelector('#city').onchange = getWeather;
