@@ -7,6 +7,20 @@ console.log(headerTitle);
 const param = {
 	"url" : "https://api.openweathermap.org/data/2.5/",
 	"appid" : "df6323c09e8d7869991460f3e64324f5"
+};
+
+// Connect to Api
+function getWeather() {
+	const cityId = document.querySelector('#cities').value;
+   
+	fetch(`${param.url}weather?id=${cityId}&units=metric&APPID=${param.appid}`)
+	.then(weather => { 
+			return weather.json();
+		}).then(showWeather);
+}
+
+function showWeather(data) {
+	console.log(data);
 }
 
 // City
@@ -37,11 +51,12 @@ const cities = {
    691650 : "Тернопіль",
    702569 : "Луцьк"
 };
-// Function SelectCity - dynamic create select for Object city
+
+// Dynamic create select for Object city
 function selectCity () {
    let select = document.createElement('select');
    select.id = 'cities';
-   main.appendChild(select);
+   main.append(select);
    for (let key in cities) {      
       const option = document.createElement('option');
       option.classList.add('city__item');
@@ -51,8 +66,6 @@ function selectCity () {
    console.log(select);
 }
 
-selectCity();
-
 function changeTitle (obj, div) {
    let countCity = 0;
    for (let index in obj) {
@@ -61,22 +74,12 @@ function changeTitle (obj, div) {
    div.innerHTML = `Погода в найбільших ${countCity} містах України`;
 }
 
+
+
+
+
 changeTitle(cities, headerTitle);
-
-function getWeather() {
-	const cityId = document.querySelector('#cities').value;
-   
-	fetch(`${param.url}weather?id=${cityId}&units=metric&APPID=${param.appid}`)
-	.then(weather => { 
-			return weather.json();
-		}).then(showWeather);
-   console.log(cityId);
-}
-
-function showWeather(data) {
-	console.log(data);
-}
-
+selectCity();
 getWeather();
 
 document.querySelector('#cities').onchange = getWeather;
