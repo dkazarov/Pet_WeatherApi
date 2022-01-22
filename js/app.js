@@ -1,7 +1,10 @@
 'use strict';
 
-const main = document.querySelector('main');
+const select = document.querySelector('#cities');
 const headerTitle = document.querySelector('.header__title');
+const weatherIcon = document.querySelector('.icon');
+const locationOut = document.querySelector('.location');
+const temp = document.querySelector('.temp');
 console.log(headerTitle);
 
 const param = {
@@ -21,6 +24,8 @@ function getWeather() {
 
 function showWeather(data) {
 	console.log(data);
+      weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
+      temp.innerHTML = `${Math.round(data.main.temp)}&deg`;   
 }
 
 // City
@@ -54,10 +59,8 @@ const cities = {
 
 // Dynamic create select for Object city
 function selectCity () {
-   let select = document.createElement('select');
-   select.id = 'cities';
-   main.append(select);
-   for (let key in cities) {      
+   for (let key in cities) { 
+      
       const option = document.createElement('option');
       option.classList.add('city__item');
       option.setAttribute('value', key);
