@@ -1,11 +1,14 @@
 'use strict';
 
-const select = document.querySelector('#cities');
-const headerTitle = document.querySelector('.header__title');
-const weatherIcon = document.querySelector('.icon');
-const locationOut = document.querySelector('.location');
-const temp = document.querySelector('.temp');
-console.log(headerTitle);
+const  select = document.querySelector('#cities'),
+       headerTitle = document.querySelector('.header__title'),
+       weatherIcon = document.querySelector('.icon'),
+       locationOut = document.querySelector('.location'),
+       temp = document.querySelector('.temp'),
+       stress = document.querySelector('.stress'),
+       maxTemp = document.querySelector('.max-temp'),
+       minTemp = document.querySelector('.min-temp'),
+       wind = document.querySelector('.wind');
 
 const param = {
 	"url" : "https://api.openweathermap.org/data/2.5/",
@@ -25,7 +28,11 @@ function getWeather() {
 function showWeather(data) {
 	console.log(data);
       weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
-      temp.innerHTML = `${Math.round(data.main.temp)}&deg`;   
+      temp.innerHTML = `${Math.round(data.main.temp)}&deg`;
+      stress.innerHTML = `Атмосверное давление: ${data.main.pressure}`;
+      maxTemp.innerHTML = `Макс. температура сегодня: ${Math.round(data.main.temp_max)}&deg`;
+      minTemp.innerHTML = `Мин. температура сегодня: ${Math.round(data.main.temp_min)}&deg`;
+      wind.innerHTML = `Скорость ветра: ${data.wind.speed} км / час`;
 }
 
 // City
