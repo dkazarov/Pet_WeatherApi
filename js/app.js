@@ -29,10 +29,10 @@ function showWeather(data) {
 	console.log(data);
       weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
       temp.innerHTML = `${Math.round(data.main.temp)}&deg`;
-      stress.innerHTML = `Атмосверное давление: ${data.main.pressure}`;
-      maxTemp.innerHTML = `Макс. температура сегодня: ${Math.round(data.main.temp_max)}&deg`;
-      minTemp.innerHTML = `Мин. температура сегодня: ${Math.round(data.main.temp_min)}&deg`;
-      wind.innerHTML = `Скорость ветра: ${data.wind.speed} км / час`;
+      stress.innerHTML = `Атмосверне давління: ${data.main.pressure}`;
+      maxTemp.innerHTML = `Макс. температура сьогодні: ${Math.round(data.main.temp_max)}&deg`;
+      minTemp.innerHTML = `Мин. температура сьгодні: ${Math.round(data.main.temp_min)}&deg`;
+      wind.innerHTML = `Швидкість вітра: ${data.wind.speed} км / год`;
 }
 
 // City
@@ -75,7 +75,7 @@ function selectCity () {
    }
    console.log(select);
 }
-
+// changes the number of cities
 function changeTitle (obj, div) {
    let countCity = 0;
    for (let index in obj) {
@@ -84,10 +84,33 @@ function changeTitle (obj, div) {
    div.innerHTML = `Погода в найбільших ${countCity} містах України`;
 }
 
+//Date
+
+// Add zero
+const date = new Date();
+const day = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'Пʼятниця', 'Субота'];
+const month = ['Січня', 'Лютого', 'Березеня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня'];
+
+const addZero = (dayMonth) => {
+   if (dayMonth < 10) { 
+      return dayMonth = '0' + dayMonth; 
+   } else {
+      return dayMonth;
+   }
+} 
+
+const showDate = () => {
+   const today = document.querySelector('.today__date');
+   const dayOfMonth = date.getDate();
+   today.textContent = `${day[date.getDay()]} ${addZero(dayOfMonth)} ${month[date.getMonth()]} `;
+}
 
 
 
 
+
+
+showDate();
 changeTitle(cities, headerTitle);
 selectCity();
 getWeather();
