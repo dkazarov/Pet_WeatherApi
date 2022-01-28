@@ -29,9 +29,9 @@ function showWeather(data) {
 	console.log(data);
       weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
       temp.innerHTML = `${Math.round(data.main.temp)}&deg`;
-      stress.innerHTML = `Атмосверний тиск: <br>${data.main.pressure}`;
+      stress.innerHTML = `Атмосверний тиск: <br>${data.main.pressure} гПа`;
       maxTemp.innerHTML = `Макс. температура сьогодні: ${Math.round(data.main.temp_max)}&deg`;
-      minTemp.innerHTML = `Мин. температура сьгодні: ${Math.round(data.main.temp_min)}&deg`;
+      minTemp.innerHTML = `Мін. температура сьгодні: ${Math.round(data.main.temp_min)}&deg`;
       wind.innerHTML = `Швидкість вітра: <br>${data.wind.speed} км / год`;
 }
 
