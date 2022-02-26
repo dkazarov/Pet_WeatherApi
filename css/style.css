@@ -203,7 +203,8 @@ select {
     .main__header {
       display: flex;
       justify-content: space-between;
-      align-items: center
+      align-items: center;
+      padding-left: 10px;
     }
     .today {
       max-width: 300px;
@@ -288,7 +289,6 @@ select {
       }
     }
   }
-
 };
 
 
