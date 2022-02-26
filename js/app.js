@@ -97,16 +97,13 @@ const addZero = (dayMonth) => {
    } else {
       return dayMonth;
    }
-} 
+};
 
 const showDate = () => {
    const today = document.querySelector('.today__date');
    const dayOfMonth = date.getDate();
    today.textContent = `${day[date.getDay()]} ${addZero(dayOfMonth)} ${month[date.getMonth()]} `;
-}
-
-
-
+};
 
 
 
