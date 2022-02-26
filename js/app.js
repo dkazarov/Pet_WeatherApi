@@ -26,7 +26,6 @@ function getWeather() {
 }
 
 function showWeather(data) {
-	console.log(data);
       weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
       temp.innerHTML = `${Math.round(data.main.temp)}&deg`;
       stress.innerHTML = `Атмосверний тиск: <br>${data.main.pressure} гПа`;
@@ -66,14 +65,12 @@ const cities = {
 
 // Dynamic create select for Object city
 function selectCity () {
-   for (let key in cities) { 
-      
+   for (let key in cities) {       
       const option = document.createElement('option');
       option.classList.add('city__item');
       option.setAttribute('value', key);
       select.appendChild(option).innerHTML = cities[key];
    }
-   console.log(select);
 }
 // changes the number of cities
 function changeTitle (obj, div) {
