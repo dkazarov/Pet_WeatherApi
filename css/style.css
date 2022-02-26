@@ -173,4 +173,52 @@ select {
   }
 }
 
+@media (max-width: 620px) {
+  body {
+    margin: 0 auto;
+    transform: translateY(50%);
+    top: 50%;
+    padding: 0 15px;
+  }
+  .header {
+    display: none;
+  }
+  .today {
+    max-width: 200px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  .today__title {
+    padding-top: 20px;
+  }
+  .today__date {
+    font-size: 30px;
+    padding: 0;
+  }
+  @media (max-width: 520px) {
+    .main__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+    .today {
+      max-width: 300px;
+    }
+    .today__date {
+      font-size: 40px;
+      padding: 0;
+    }
+    .today__title {
+      padding-top: 0px;
+    }
+    .icon {
+      display: none;
+    }
+  }
+
+};
+
+
+
+
 
