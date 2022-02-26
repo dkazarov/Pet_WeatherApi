@@ -246,13 +246,13 @@ select {
         font-size: 20px;
       }
     }
-    @media (min-width: 380px) {
+    @media (max-width: 380px) {
       .main {
         padding: 10px;
         max-height: 300px;
       }
       .today {
-        display: block;
+        font-size: 20px;
       }
       .today__title {
         font-size: 15px;
@@ -261,7 +261,7 @@ select {
         font-size: 100px;
       }
       .today__date {
-        font-size: 25px;
+        font-size: 30px;
       }
       #cities {
         margin-bottom: 20px;
