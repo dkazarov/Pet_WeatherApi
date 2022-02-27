@@ -1,5 +1,7 @@
 ![alt text](hero.jpg)
 
+url: https://dkazarov.github.io/Pet_WeatherApi/
+
 #Weather Api v1.0.2
 
 Language: UA
